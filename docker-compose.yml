@@ -1,11 +1,40 @@
 version: '3.8'
+
 services:
+  mentors:
+    build:
+      context: .
+      dockerfile: apps/mentors/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+    volumes:
+      - ./apps/mentors:/app
+      - /app/node_modules
+    depends_on:
+      - rabbitmq
+
+  mentees:
+    build:
+      context: .
+      dockerfile: apps/mentees/Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+    volumes:
+      - ./apps/mentees:/app
+      - /app/node_modules
+    depends_on:
+      - rabbitmq
+
   rabbitmq:
-    image: rabbitmq:3-management
+    image: rabbitmq:management
     container_name: rabbitmq
     ports:
-      - "5672:5672"   # RabbitMQ server
-      - "15672:15672" # RabbitMQ management UI
+      - "5672:5672"  # RabbitMQ message broker port
+      - "15672:15672" # RabbitMQ management UI port
     environment:
-      RABBITMQ_DEFAULT_USER: guest
-      RABBITMQ_DEFAULT_PASS: guest
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin

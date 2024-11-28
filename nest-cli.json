@@ -10,15 +10,6 @@
   "monorepo": true,
   "root": "apps/rabbitmq-tutorial",
   "projects": {
-    "rabbitmq-tutorial": {
-      "type": "application",
-      "root": "apps/rabbitmq-tutorial",
-      "entryFile": "main",
-      "sourceRoot": "apps/rabbitmq-tutorial/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/rabbitmq-tutorial/tsconfig.app.json"
-      }
-    },
     "mentors": {
       "type": "application",
       "root": "apps/mentors",
