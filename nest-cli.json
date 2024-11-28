@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/rabbitmq-tutorial/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/rabbitmq-tutorial/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/rabbitmq-tutorial",
+  "projects": {
+    "rabbitmq-tutorial": {
+      "type": "application",
+      "root": "apps/rabbitmq-tutorial",
+      "entryFile": "main",
+      "sourceRoot": "apps/rabbitmq-tutorial/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/rabbitmq-tutorial/tsconfig.app.json"
+      }
+    },
+    "mentors": {
+      "type": "application",
+      "root": "apps/mentors",
+      "entryFile": "main",
+      "sourceRoot": "apps/mentors/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/mentors/tsconfig.app.json"
+      }
+    },
+    "mentees": {
+      "type": "application",
+      "root": "apps/mentees",
+      "entryFile": "main",
+      "sourceRoot": "apps/mentees/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/mentees/tsconfig.app.json"
+      }
+    }
+  }
+}
